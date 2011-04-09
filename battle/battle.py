@@ -1,7 +1,9 @@
 from cocos.director import director
 from cocos.scene import Scene
 from cocos.menu import Menu, MenuItem
-from cocos.layer import Layer
+
+import pyglet
+
 class MainMenu(Menu):
 
     def __init__(self):
@@ -21,7 +23,7 @@ class MainMenu(Menu):
         pass
 
     def quit(self):
-        pass
+        pyglet.app.exit()
 
 if __name__ == "__main__":
     director.init(resizable=False, width=800, height=600)
