@@ -2,8 +2,16 @@ from cocos.scene import Scene
 from cocos.sprite import Sprite
 from cocos.text import Label
 from cocos.director import director
+from cocos.layer import Layer
 
 import string
+
+class EventLayer(Layer):
+
+    is_event_handler = True
+
+    def on_mouse_press(self, *args):
+        print 'FOO'
 
 class Ship(Sprite):
 
@@ -12,10 +20,15 @@ class Ship(Sprite):
 
 class Game(Scene):
 
+    is_event_handler = True
+
     def __init__(self):
         super(Game, self).__init__()
 
+        self.add(EventLayer())
+
         self.build_game_board()
+
         ship = Ship()
         ship.position = (100, 75)
         self.add(ship, z=100)
