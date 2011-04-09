@@ -3,6 +3,8 @@ from cocos.sprite import Sprite
 from cocos.text import Label
 from cocos.director import director
 
+import string
+
 class Game(Scene):
 
     def __init__(self):
@@ -19,11 +21,18 @@ class Game(Scene):
                 self.add(square)
 
         self.line_labels()
+        self.column_labels()
 
     def line_labels(self):
         for x in range(10):
             label = Label(str(10-x), font_size=12)
             label.position = (30, 70 + (50 * x))
+            self.add(label)
+
+    def column_labels(self):
+        for x in range(10):
+            label = Label(string.letters[x].upper(), font_size=12)
+            label.position = (70 + (50 * x), 30)
             self.add(label)
 
 if __name__ == '__main__':
