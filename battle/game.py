@@ -10,20 +10,32 @@ class EventLayer(Layer):
 
     is_event_handler = True
 
-    def __init__(self, matrix):
+    def __init__(self, matrix, ship):
         super(EventLayer, self).__init__()
         self.matrix = matrix
+        self.ship = ship
 
     def on_mouse_press(self, x, y, *args):
+        print 'aeee'
         for line in self.matrix:
             for sprite in line:
-                if (x > sprite.position[0]-25) and (x < sprite.position[0]+25) and (y > sprite.position[1]-25) and (y < sprite.position[1]+25):
-                    sprite.visible = False
+                if sprite.contains(x,y):
+                    if sprite.visible:
+                        sprite.visible = False
+                        if self.ship.contains(x,y):
+                            self.ship.shoted()
 
 class Ship(Sprite):
 
     def __init__(self):
         super(Ship, self).__init__('ship.png')
+        self.shots_received = 0
+
+    def shoted(self):
+        self.shots_received += 1
+
+        if self.shots_received == 2:
+            self.visible = False
 
 class Game(Scene):
 
@@ -34,11 +46,11 @@ class Game(Scene):
 
         self.build_game_board()
 
-        self.add(EventLayer(self.matrix))
-
         ship = Ship()
         ship.position = (100, 75)
         self.add(ship, z=100)
+
+        self.add(EventLayer(self.matrix, ship))
 
     def build_game_board(self):
         self.matrix = []
