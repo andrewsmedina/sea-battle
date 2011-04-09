@@ -6,9 +6,9 @@ class Game(Scene):
     def __init__(self):
         super(Game, self).__init__()
 
-        self.build_board()
+        self.build_game_board()
 
-    def build_board(self):
+    def build_game_board(self):
 
         for x in range(10):
             for y in range(10):
