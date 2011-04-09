@@ -11,6 +11,9 @@ class Game(Scene):
         super(Game, self).__init__()
 
         self.build_game_board()
+        ship = Sprite('ship.png')
+        ship.position = (100, 75)
+        self.add(ship, z=100)
 
     def build_game_board(self):
 
