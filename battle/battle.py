@@ -2,6 +2,7 @@ from cocos.director import director
 from cocos.scene import Scene
 from cocos.menu import Menu, MenuItem
 
+import game
 import pyglet
 
 class MainMenu(Menu):
@@ -16,7 +17,8 @@ class MainMenu(Menu):
         self.create_menu(items)
 
     def start(self):
-        pass
+        game_scene = game.Game()
+        director.push(game_scene)
 
     def quit(self):
         pyglet.app.exit()
