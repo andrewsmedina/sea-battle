@@ -11,16 +11,16 @@ class MainMenu(Menu):
         super(MainMenu, self).__init__('sea battle')
 
         items = []
-        items.append(MenuItem('Start', self.start))
-        items.append(MenuItem('Quit', self.quit))
+        items.append(MenuItem('Start', self.on_start))
+        items.append(MenuItem('Quit', self.on_quit))
 
         self.create_menu(items)
 
-    def start(self):
+    def on_start(self):
         game_scene = game.Game()
         director.push(game_scene)
 
-    def quit(self):
+    def on_quit(self):
         pyglet.app.exit()
 
 if __name__ == "__main__":
