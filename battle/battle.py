@@ -11,15 +11,11 @@ class MainMenu(Menu):
 
         items = []
         items.append(MenuItem('Start', self.start))
-        items.append(MenuItem('Credits', self.credits))
         items.append(MenuItem('Quit', self.quit))
 
         self.create_menu(items)
 
     def start(self):
-        pass
-
-    def credits(self):
         pass
 
     def quit(self):
