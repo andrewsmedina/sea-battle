@@ -5,13 +5,18 @@ from cocos.director import director
 
 import string
 
+class Ship(Sprite):
+
+    def __init__(self):
+        super(Ship, self).__init__('ship.png')
+
 class Game(Scene):
 
     def __init__(self):
         super(Game, self).__init__()
 
         self.build_game_board()
-        ship = Sprite('ship.png')
+        ship = Ship()
         ship.position = (100, 75)
         self.add(ship, z=100)
 
