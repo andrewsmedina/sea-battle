@@ -30,6 +30,7 @@ class Ship(Sprite):
     def __init__(self):
         super(Ship, self).__init__('ship.png')
         self.shots_received = 0
+        self.visible = False
 
     def shoted(self):
         score.score_points += 10
@@ -37,7 +38,7 @@ class Ship(Sprite):
         self.shots_received += 1
 
         if self.shots_received == 2:
-            self.visible = False
+            self.visible = True
 
 class Game(Scene):
 
