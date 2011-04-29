@@ -4,6 +4,7 @@ from cocos.text import Label
 from cocos.director import director
 from cocos.layer import Layer
 
+import score
 import string
 
 class EventLayer(Layer):
@@ -31,6 +32,8 @@ class Ship(Sprite):
         self.shots_received = 0
 
     def shoted(self):
+        score.score_points += 10
+
         self.shots_received += 1
 
         if self.shots_received == 2:
