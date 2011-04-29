@@ -16,5 +16,6 @@ class Ship(Sprite):
 
         if self.shots_received == 2:
             self.visible = True
+            score.score_points += 50
 
 

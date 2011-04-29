@@ -5,6 +5,7 @@ from pyglet import font
 from score import Score
 from cocos.layer import Layer
 from cocos.text import *
+from cocos.menu import *
 
 import os
 import game
@@ -31,6 +32,19 @@ class MainMenu(Menu):
         self.font_title['font_name'] = "Operating instructions"
         self.font_item['font_name'] = "Operating instructions"
         self.font_item_selected['font_name'] = "Operating instructions"
+
+        self.font_title['font_size'] = 70
+        self.font_title['color'] = (255, 255, 255, 255)
+        self.font_title['anchor_y'] = "top"
+
+        self.font_item['font_size'] = 46
+        self.font_item['color'] = (0xf6, 0xef, 0x8f, 255)
+
+        self.font_item_selected['font_size'] = 50
+        self.font_item_selected['color'] = (255, 255, 255, 255)
+
+        self.menu_valign = BOTTOM
+
 
         items = []
         items.append(MenuItem('Start', self.on_start))

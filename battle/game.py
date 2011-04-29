@@ -22,7 +22,11 @@ class Game(Scene):
         ship.position = (100, 75)
         self.add(ship, z=100)
 
-        self.add(EventLayer(self.matrix, ship))
+        ship2 = Ship()
+        ship2.position = (300, 375)
+        self.add(ship2, z=101)
+
+        self.add(EventLayer(self.matrix, ship, ship2))
 
     def build_game_board(self):
         self.matrix = []
