@@ -2,6 +2,8 @@ from cocos.director import director
 from cocos.scene import Scene
 from cocos.menu import Menu, MenuItem
 
+from score import Score
+
 import game
 import pyglet
 
@@ -18,6 +20,7 @@ class MainMenu(Menu):
 
     def on_start(self):
         game_scene = game.Game()
+        game_scene.add(Score(), z=2)
         director.push(game_scene)
 
     def on_quit(self):
