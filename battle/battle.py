@@ -3,10 +3,25 @@ from cocos.scene import Scene
 from cocos.menu import Menu, MenuItem
 from pyglet import font
 from score import Score
+from cocos.layer import Layer
+from cocos.text import *
 
 import os
 import game
 import pyglet
+
+
+class Background(Layer):
+    def __init__(self):
+        super(Background, self).__init__()
+        self.img = pyglet.resource.image('bg.jpg')
+
+    def draw(self):
+        glPushMatrix()
+        self.transform()
+        self.img.blit(0,0)
+        glPopMatrix()
+
 
 class MainMenu(Menu):
 
@@ -37,7 +52,7 @@ if __name__ == "__main__":
 
     director.init(resizable=False, width=800, height=600)
 
-    scene = Scene()
+    scene = Scene(Background())
     scene.add(MainMenu())
 
     director.run(scene)
