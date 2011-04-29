@@ -4,25 +4,10 @@ from cocos.text import Label
 from cocos.director import director
 
 from events import EventLayer
+from ship import Ship
 
-import score
 import string
 
-
-class Ship(Sprite):
-
-    def __init__(self):
-        super(Ship, self).__init__('ship.png')
-        self.shots_received = 0
-        self.visible = False
-
-    def shoted(self):
-        score.score_points += 10
-
-        self.shots_received += 1
-
-        if self.shots_received == 2:
-            self.visible = True
 
 class Game(Scene):
 
